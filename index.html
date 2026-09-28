@@ -1,2686 +1,1267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>THOEDGE JEE HUB</title>
+  <title>THOYAJAKSH'S JEE HUB</title>
 
-<meta name="description"
-content="THOEDGE JEE HUB — JEE Main & Advanced preparation resources, books, notes, formulas, shortcuts, PYQs, DPPs and more.">
+  <meta
+    name="description"
+    content="THOYAJAKSH'S JEE HUB — JEE Main, JEE Advanced, BITSAT, Competitive Exams and CBSE Class 11 & 12 preparation."
+  >
 
-<style>
+  <style>
 
-/* =========================================================
-   THOEDGE JEE HUB
-   GEN-Z BLACK TECH UI
-   ========================================================= */
+    /* =========================================================
+       ROOT / GLOBAL
+    ========================================================= */
 
-:root {
-    --bg: #050507;
-    --bg2: #080811;
-    --card: #0d0d16;
-    --card2: #11111d;
+    :root {
+      --bg: #030305;
+      --bg2: #07070b;
+      --card: #0b0b10;
+      --card2: #101017;
+      --border: #23232d;
 
-    --white: #ffffff;
-    --text: #e9e9f2;
-    --muted: #9292a7;
+      --text: #f5f7ff;
+      --muted: #969aaa;
 
-    --blue: #00aaff;
-    --cyan: #00f0ff;
-    --purple: #8b5cf6;
-    --pink: #ff3cac;
-    --orange: #ff9d00;
-    --green: #00ff9d;
-    --red: #ff416c;
+      --cyan: #22d3ee;
+      --blue: #38bdf8;
+      --purple: #a855f7;
+      --pink: #ec4899;
+      --green: #22c55e;
+      --orange: #fb923c;
+      --yellow: #facc15;
 
-    --border: rgba(255,255,255,0.09);
+      --glow:
+        0 0 25px rgba(34,211,238,.10),
+        0 20px 60px rgba(0,0,0,.45);
+    }
 
-    --glow-blue: 0 0 25px rgba(0,170,255,0.30);
-    --glow-purple: 0 0 25px rgba(139,92,246,0.25);
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-html {
-    scroll-behavior: smooth;
-}
+    body {
+      min-height: 100vh;
+      font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background:
-        radial-gradient(circle at 10% 10%, rgba(0,170,255,0.08), transparent 30%),
-        radial-gradient(circle at 90% 20%, rgba(139,92,246,0.08), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(255,60,172,0.05), transparent 35%),
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(34,211,238,.08),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(168,85,247,.09),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 50% 80%,
+          rgba(236,72,153,.045),
+          transparent 30%
+        ),
         var(--bg);
 
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* Grid background */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-
-    background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-
-    background-size: 40px 40px;
-
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    background: rgba(5,5,7,0.86);
-    backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid var(--border);
-}
-
-.navbar {
-    max-width: 1250px;
-    margin: auto;
-
-    min-height: 75px;
-
-    padding: 10px 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    cursor: pointer;
-}
-
-.brand img {
-    width: 48px;
-    height: 48px;
-
-    object-fit: contain;
-
-    border-radius: 12px;
-
-    background: white;
-
-    padding: 4px;
-
-    box-shadow:
-        0 0 15px rgba(0,170,255,0.3);
-}
-
-.brand-text {
-    line-height: 1.1;
-}
-
-.brand-title {
-    font-size: 19px;
-    font-weight: 900;
-    letter-spacing: 1px;
-
-    background: linear-gradient(
-        90deg,
-        var(--cyan),
-        var(--blue),
-        var(--purple),
-        var(--pink)
-    );
-
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.brand-sub {
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    margin-top: 4px;
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 8px;
-}
-
-.nav-btn {
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.035);
-
-    color: var(--text);
-
-    padding: 9px 13px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    font-size: 12px;
-
-    transition: 0.25s;
-}
-
-.nav-btn:hover {
-    border-color: var(--blue);
-    color: var(--cyan);
-    box-shadow: var(--glow-blue);
-}
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-.hero {
-    max-width: 1250px;
-    margin: auto;
-
-    padding: 75px 20px 45px;
-
-    text-align: center;
-}
-
-.badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 8px 14px;
-
-    border: 1px solid rgba(0,240,255,0.25);
-
-    background: rgba(0,240,255,0.05);
-
-    border-radius: 100px;
-
-    color: var(--cyan);
-
-    font-size: 11px;
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    box-shadow: var(--glow-blue);
-}
-
-.badge-dot {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: var(--green);
-
-    box-shadow: 0 0 12px var(--green);
-}
-
-.hero h1 {
-    margin-top: 25px;
-
-    font-size: clamp(42px, 8vw, 85px);
-
-    line-height: 0.95;
-
-    font-weight: 1000;
-
-    letter-spacing: -4px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            var(--cyan),
-            var(--blue),
-            var(--purple),
-            var(--pink)
-        );
-
-    -webkit-background-clip: text;
-    color: transparent;
-
-    text-shadow: 0 0 30px rgba(0,170,255,0.15);
-}
-
-.hero h2 {
-    margin-top: 20px;
-
-    font-size: clamp(16px, 3vw, 25px);
-
-    color: #bcbccc;
-
-    font-weight: 500;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: 18px auto 0;
-
-    color: var(--muted);
-
-    line-height: 1.7;
-
-    font-size: 14px;
-}
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-.search-box {
-    max-width: 750px;
-    margin: 32px auto 0;
-
-    position: relative;
-}
-
-.search-box input {
-    width: 100%;
-
-    padding: 17px 20px 17px 50px;
-
-    border-radius: 15px;
-
-    border: 1px solid rgba(0,170,255,0.25);
-
-    background: rgba(10,10,18,0.9);
-
-    color: white;
-
-    outline: none;
-
-    font-size: 14px;
-
-    box-shadow:
-        0 0 25px rgba(0,170,255,0.07);
-
-    transition: 0.25s;
-}
-
-.search-box input:focus {
-    border-color: var(--cyan);
-
-    box-shadow:
-        0 0 25px rgba(0,240,255,0.15);
-}
-
-.search-icon {
-    position: absolute;
-
-    left: 18px;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    color: var(--cyan);
-
-    font-size: 18px;
-}
-
-/* =========================================================
-   MAIN
-   ========================================================= */
-
-.container {
-    max-width: 1250px;
-    margin: auto;
-
-    padding: 20px;
-}
-
-.section {
-    margin: 55px 0;
-}
-
-.section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-
-    margin-bottom: 20px;
-
-    gap: 15px;
-}
-
-.section-title {
-    font-size: 25px;
-
-    color: white;
-
-    font-weight: 900;
-}
-
-.section-title span {
-    color: var(--cyan);
-}
-
-.section-description {
-    color: var(--muted);
-
-    font-size: 12px;
-
-    margin-top: 5px;
-}
-
-/* =========================================================
-   RESOURCE VAULT
-   ========================================================= */
-
-.vault {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
-
-    gap: 13px;
-}
-
-.vault-card {
-    position: relative;
-
-    padding: 20px;
-
-    min-height: 135px;
-
-    border-radius: 17px;
-
-    border: 1px solid var(--border);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.06),
-            rgba(255,255,255,0.015)
-        );
-
-    cursor: pointer;
-
-    overflow: hidden;
-
-    transition: 0.3s;
-}
-
-.vault-card::before {
-    content: "";
-
-    position: absolute;
-
-    width: 120px;
-    height: 120px;
-
-    right: -50px;
-    bottom: -50px;
-
-    border-radius: 50%;
-
-    background: var(--accent);
-
-    filter: blur(35px);
-
-    opacity: 0.12;
-}
-
-.vault-card:hover {
-    transform: translateY(-5px);
-
-    border-color: var(--accent);
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,0.4),
-        0 0 20px color-mix(
-            in srgb,
-            var(--accent),
-            transparent 75%
-        );
-}
-
-.vault-icon {
-    font-size: 28px;
-
-    margin-bottom: 13px;
-}
-
-.vault-card h3 {
-    font-size: 15px;
-
-    color: white;
-}
-
-.vault-card p {
-    color: var(--muted);
-
-    font-size: 11px;
-
-    margin-top: 7px;
-
-    line-height: 1.5;
-}
-
-/* =========================================================
-   SUBJECT CARDS
-   ========================================================= */
-
-.subject-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
-
-    gap: 18px;
-}
-
-.subject-card {
-    position: relative;
-
-    padding: 25px;
-
-    border-radius: 20px;
-
-    min-height: 190px;
-
-    overflow: hidden;
-
-    border: 1px solid var(--border);
-
-    background: var(--card);
-
-    transition: 0.3s;
-
-    cursor: pointer;
-}
-
-.subject-card:hover {
-    transform: translateY(-7px);
-
-    box-shadow: 0 15px 40px rgba(0,0,0,0.45);
-}
-
-.subject-card.physics:hover {
-    border-color: var(--blue);
-}
-
-.subject-card.chemistry:hover {
-    border-color: var(--pink);
-}
-
-.subject-card.maths:hover {
-    border-color: var(--purple);
-}
-
-.subject-icon {
-    font-size: 40px;
-
-    margin-bottom: 20px;
-}
-
-.subject-card h3 {
-    font-size: 22px;
-
-    color: white;
-}
-
-.subject-card p {
-    margin-top: 8px;
-
-    color: var(--muted);
-
-    font-size: 12px;
-}
-
-/* =========================================================
-   CLASS / CHAPTER AREA
-   ========================================================= */
-
-.panel {
-    display: none;
-
-    margin-top: 25px;
-
-    animation: fadeIn 0.3s ease;
-}
-
-.panel.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
+      overflow-x: hidden;
     }
 
-    to {
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================================================
+       TOP LIVE UPDATE BAR
+    ========================================================= */
+
+    .update-bar {
+      height: 38px;
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          90deg,
+          #07151a,
+          #08080d,
+          #100718
+        );
+
+      border-bottom: 1px solid rgba(34,211,238,.18);
+
+      overflow: hidden;
+      position: relative;
+      z-index: 2000;
+    }
+
+    .update-label {
+      flex-shrink: 0;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      padding: 0 16px;
+
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+
+      color: #020204;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--blue)
+        );
+
+      box-shadow:
+        5px 0 20px rgba(34,211,238,.12);
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+
+      background: #071014;
+
+      animation: livePulse 1.2s infinite;
+    }
+
+    @keyframes livePulse {
+      0%, 100% {
         opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.back-btn {
-    display: inline-block;
-
-    margin-bottom: 18px;
-
-    padding: 9px 13px;
-
-    border: 1px solid var(--border);
-
-    background: rgba(255,255,255,0.04);
-
-    color: var(--cyan);
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    font-size: 12px;
-}
-
-.class-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-
-    gap: 16px;
-}
-
-.class-card {
-    padding: 25px;
-
-    border-radius: 18px;
-
-    background: linear-gradient(
-        145deg,
-        #11111b,
-        #09090e
-    );
-
-    border: 1px solid var(--border);
-
-    cursor: pointer;
-
-    transition: 0.25s;
-}
-
-.class-card:hover {
-    border-color: var(--cyan);
-
-    transform: translateY(-4px);
-
-    box-shadow: var(--glow-blue);
-}
-
-.class-card h3 {
-    font-size: 20px;
-}
-
-.class-card p {
-    color: var(--muted);
-
-    font-size: 12px;
-
-    margin-top: 8px;
-}
-
-/* =========================================================
-   CHAPTER GRID
-   ========================================================= */
-
-.chapter-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-
-    gap: 11px;
-}
-
-.chapter {
-    padding: 15px;
-
-    border-radius: 13px;
-
-    background: rgba(255,255,255,0.035);
-
-    border: 1px solid var(--border);
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.chapter:hover {
-    border-color: var(--blue);
-
-    color: var(--cyan);
-
-    background: rgba(0,170,255,0.06);
-}
-
-.chapter-number {
-    color: var(--blue);
-
-    font-size: 10px;
-
-    font-weight: bold;
-}
-
-.chapter-name {
-    display: block;
-
-    margin-top: 5px;
-
-    font-size: 13px;
-
-    color: #e8e8ef;
-}
-
-/* =========================================================
-   RESOURCE LIST
-   ========================================================= */
-
-.resource-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
-
-    gap: 14px;
-}
-
-.resource-card {
-    padding: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.055),
-            rgba(255,255,255,0.018)
-        );
-
-    border: 1px solid var(--border);
-
-    border-radius: 16px;
-
-    transition: 0.25s;
-}
-
-.resource-card:hover {
-    transform: translateY(-4px);
-
-    border-color: rgba(0,240,255,0.5);
-
-    box-shadow: var(--glow-blue);
-}
-
-.resource-type {
-    display: inline-block;
-
-    padding: 5px 8px;
-
-    border-radius: 7px;
-
-    background: rgba(0,170,255,0.08);
-
-    color: var(--cyan);
-
-    font-size: 9px;
-
-    font-weight: bold;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.5px;
-}
-
-.resource-card h3 {
-    margin-top: 12px;
-
-    font-size: 15px;
-
-    color: white;
-}
-
-.resource-card p {
-    margin-top: 7px;
-
-    color: var(--muted);
-
-    font-size: 11px;
-
-    line-height: 1.5;
-}
-
-.resource-btn {
-    display: inline-block;
-
-    margin-top: 15px;
-
-    padding: 9px 13px;
-
-    border-radius: 9px;
-
-    text-decoration: none;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--blue),
-            var(--purple)
-        );
-
-    font-size: 11px;
-
-    font-weight: bold;
-
-    transition: 0.2s;
-}
-
-.resource-btn:hover {
-    transform: scale(1.04);
-
-    box-shadow:
-        0 0 20px rgba(0,170,255,0.3);
-}
-
-/* =========================================================
-   JEE CARDS
-   ========================================================= */
-
-.jee-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 18px;
-}
-
-.jee-card {
-    padding: 25px;
-
-    border-radius: 20px;
-
-    border: 1px solid var(--border);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(139,92,246,0.08),
-            rgba(0,170,255,0.03)
-        );
-}
-
-.jee-card h3 {
-    font-size: 22px;
-}
-
-.jee-card p {
-    color: var(--muted);
-
-    font-size: 12px;
-
-    line-height: 1.6;
-
-    margin-top: 9px;
-}
-
-.jee-card button {
-    margin-top: 17px;
-
-    padding: 10px 15px;
-
-    border: 1px solid var(--border);
-
-    background: rgba(255,255,255,0.05);
-
-    color: white;
-
-    border-radius: 9px;
-
-    cursor: pointer;
-}
-
-/* =========================================================
-   STATS
-   ========================================================= */
-
-.stats {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 10px;
-
-    margin: 35px auto;
-
-    max-width: 900px;
-}
-
-.stat {
-    padding: 18px;
-
-    text-align: center;
-
-    border: 1px solid var(--border);
-
-    border-radius: 14px;
-
-    background: rgba(255,255,255,0.025);
-}
-
-.stat strong {
-    display: block;
-
-    font-size: 24px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            var(--purple)
-        );
-
-    -webkit-background-clip: text;
-
-    color: transparent;
-}
-
-.stat span {
-    font-size: 10px;
-
-    color: var(--muted);
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-    margin-top: 80px;
-
-    padding: 45px 20px;
-
-    border-top: 1px solid var(--border);
-
-    text-align: center;
-
-    background: rgba(0,0,0,0.3);
-}
-
-.footer-logo {
-    font-size: 22px;
-
-    font-weight: 900;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            var(--blue),
-            var(--purple),
-            var(--pink)
-        );
-
-    -webkit-background-clip: text;
-
-    color: transparent;
-}
-
-footer p {
-    margin-top: 9px;
-
-    color: var(--muted);
-
-    font-size: 11px;
-}
-
-.footer-line {
-    width: 100px;
-
-    height: 2px;
-
-    margin: 18px auto;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            var(--purple),
-            var(--pink)
-        );
-
-    border-radius: 10px;
-}
-
-/* =========================================================
-   EMPTY STATE
-   ========================================================= */
-
-.empty {
-    padding: 40px;
-
-    text-align: center;
-
-    color: var(--muted);
-
-    border: 1px dashed var(--border);
-
-    border-radius: 15px;
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media(max-width: 700px) {
-
-    .navbar {
-        min-height: 65px;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .35;
+        transform: scale(.65);
+      }
     }
 
-    .brand img {
-        width: 40px;
-        height: 40px;
+    .ticker-window {
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker {
+      display: inline-flex;
+      min-width: max-content;
+
+      animation: tickerMove 28s linear infinite;
+    }
+
+    .ticker:hover {
+      animation-play-state: paused;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 0 35px;
+
+      color: #cfd3df;
+      font-size: 12px;
+    }
+
+    .ticker-item strong {
+      color: var(--cyan);
+    }
+
+    .ticker-separator {
+      color: #424452;
+    }
+
+    @keyframes tickerMove {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      backdrop-filter: blur(20px);
+
+      background:
+        rgba(3,3,5,.84);
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1280px;
+      margin: auto;
+
+      padding: 13px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 49px;
+      height: 49px;
+
+      object-fit: contain;
+
+      border-radius: 13px;
+
+      background: #08080b;
+
+      border: 1px solid #2a2a34;
+
+      box-shadow:
+        0 0 25px rgba(34,211,238,.07);
+    }
+
+    .brand-info {
+      min-width: 0;
     }
 
     .brand-title {
-        font-size: 15px;
+      font-size: 17px;
+      line-height: 1.1;
+
+      font-weight: 900;
+      letter-spacing: .7px;
+
+      white-space: nowrap;
     }
 
-    .brand-sub {
-        font-size: 8px;
+    .brand-subtitle {
+      margin-top: 5px;
+
+      color: var(--cyan);
+
+      font-size: 9px;
+      font-weight: 700;
+
+      letter-spacing: .7px;
+
+      white-space: nowrap;
     }
 
-    .nav-buttons {
-        display: none;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
+
+    .nav-links button {
+      border: 1px solid transparent;
+
+      background: transparent;
+
+      color: var(--muted);
+
+      padding: 9px 12px;
+
+      border-radius: 9px;
+
+      font-size: 13px;
+
+      transition: .2s;
+    }
+
+    .nav-links button:hover {
+      color: white;
+
+      background: #101016;
+
+      border-color: var(--border);
+    }
+
+    .menu-btn {
+      display: none;
+
+      border: 1px solid var(--border);
+
+      background: #101016;
+
+      color: white;
+
+      padding: 9px 12px;
+
+      border-radius: 9px;
+    }
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      max-width: 1280px;
+
+      margin: auto;
+
+      padding:
+        25px 20px 70px;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
 
     .hero {
-        padding-top: 55px;
+      position: relative;
+
+      min-height: 470px;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 70px 20px;
+
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(34,211,238,.09),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+
+      opacity: .12;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 45px 45px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 14px;
+
+      border-radius: 999px;
+
+      color: var(--cyan);
+
+      background: rgba(34,211,238,.045);
+
+      border: 1px solid rgba(34,211,238,.22);
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 1.2px;
+
+      margin-bottom: 22px;
     }
 
     .hero h1 {
-        letter-spacing: -2px;
+      font-size:
+        clamp(40px, 7vw, 82px);
+
+      line-height: .92;
+
+      letter-spacing: -4px;
+
+      font-weight: 950;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--blue),
+          var(--purple),
+          var(--pink)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
     }
+
+    .hero h2 {
+      margin-top: 14px;
+
+      font-size:
+        clamp(20px, 3vw, 31px);
+
+      letter-spacing: 4px;
+
+      color: white;
+    }
+
+    .hero-description {
+      max-width: 760px;
+
+      margin: 20px auto 0;
+
+      color: var(--muted);
+
+      line-height: 1.75;
+
+      font-size: 14px;
+    }
+
+    .exam-pills {
+      margin-top: 20px;
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+    }
+
+    .exam-pill {
+      padding: 6px 10px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 999px;
+
+      background: rgba(255,255,255,.025);
+
+      color: #c9ccd7;
+
+      font-size: 10px;
+    }
+
+    .search-box {
+      width: min(720px, 100%);
+
+      margin-top: 28px;
+
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+
+      padding:
+        17px 55px 17px 19px;
+
+      border-radius: 15px;
+
+      border: 1px solid #292933;
+
+      outline: none;
+
+      background: rgba(9,9,13,.9);
+
+      color: white;
+
+      box-shadow: var(--glow);
+
+      transition: .2s;
+    }
+
+    .search-box input::placeholder {
+      color: #626675;
+    }
+
+    .search-box input:focus {
+      border-color: var(--cyan);
+
+      box-shadow:
+        0 0 0 3px rgba(34,211,238,.07),
+        var(--glow);
+    }
+
+    .search-icon {
+      position: absolute;
+
+      right: 19px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      color: var(--cyan);
+
+      font-size: 20px;
+    }
+
+    /* =========================================================
+       STATS
+    ========================================================= */
 
     .stats {
-        grid-template-columns:
-            repeat(2, 1fr);
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 13px;
+
+      margin-bottom: 50px;
     }
+
+    .stat {
+      padding: 21px;
+
+      text-align: center;
+
+      border-radius: 16px;
+
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          #0e0e13,
+          #08080b
+        );
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 27px;
+
+      color: var(--cyan);
+
+      margin-bottom: 5px;
+    }
+
+    .stat span {
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    /* =========================================================
+       SECTION
+    ========================================================= */
 
     .section {
-        margin: 40px 0;
-    }
-
-    .section-heading {
-        display: block;
+      margin-top: 45px;
     }
 
     .section-title {
-        font-size: 21px;
+      display: flex;
+
+      align-items: end;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 19px;
     }
-}
 
-/* =========================================================
-   SPECIAL ACCENTS
-   ========================================================= */
+    .section-title h2 {
+      font-size: 25px;
+    }
 
-.accent-blue {
-    --accent: var(--blue);
-}
+    .section-title p {
+      color: var(--muted);
 
-.accent-cyan {
-    --accent: var(--cyan);
-}
+      font-size: 12px;
 
-.accent-purple {
-    --accent: var(--purple);
-}
+      margin-top: 5px;
+    }
 
-.accent-pink {
-    --accent: var(--pink);
-}
+    .back-btn {
+      border: 1px solid var(--border);
 
-.accent-orange {
-    --accent: var(--orange);
-}
+      background: #101016;
 
-.accent-green {
-    --accent: var(--green);
-}
+      color: white;
 
-</style>
+      padding: 9px 13px;
+
+      border-radius: 9px;
+
+      transition: .2s;
+    }
+
+    .back-btn:hover {
+      border-color: var(--cyan);
+
+      color: var(--cyan);
+    }
+
+    /* =========================================================
+       CARDS
+    ========================================================= */
+
+    .grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+    .grid-4 {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+    }
+
+    .card {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 22px;
+
+      border-radius: 18px;
+
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.025),
+          transparent
+        ),
+        var(--card);
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.16);
+
+      transition:
+        transform .25s,
+        border-color .25s,
+        box-shadow .25s;
+    }
+
+    .card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 120px;
+      height: 120px;
+
+      right: -70px;
+      top: -70px;
+
+      border-radius: 50%;
+
+      background:
+        var(--accent, var(--cyan));
+
+      opacity: .06;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+
+      border-color: #3c3d49;
+
+      box-shadow: var(--glow);
+    }
+
+    .card-icon {
+      width: 49px;
+      height: 49px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 13px;
+
+      background: #15151c;
+
+      border: 1px solid var(--border);
+
+      font-size: 22px;
+
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+
+      margin-bottom: 7px;
+    }
+
+    .card p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 1.6;
+    }
+
+    .card-btn {
+      width: 100%;
+
+      margin-top: 17px;
+
+      padding: 11px;
+
+      border-radius: 10px;
+
+      border: 1px solid var(--border);
+
+      background: #111117;
+
+      color: white;
+
+      transition: .2s;
+    }
+
+    .card-btn:hover {
+      color: var(--cyan);
+
+      border-color: var(--cyan);
+
+      background: rgba(34,211,238,.035);
+    }
+
+    /* =========================================================
+       SUBJECT COLORS
+    ========================================================= */
+
+    .physics {
+      --accent: var(--blue);
+    }
+
+    .chemistry {
+      --accent: var(--green);
+    }
+
+    .maths {
+      --accent: var(--purple);
+    }
+
+    /* =========================================================
+       CHAPTERS
+    ========================================================= */
+
+    .chapter-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 12px;
+    }
+
+    .chapter {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 12px;
+
+      padding: 14px;
+
+      border-radius: 13px;
+
+      background: #0b0b10;
+
+      border: 1px solid var(--border);
+
+      transition: .2s;
+    }
+
+    .chapter:hover {
+      transform: translateX(3px);
+
+      border-color: #41424e;
+    }
+
+    .chapter-left {
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+
+      min-width: 0;
+    }
+
+    .chapter-number {
+      flex-shrink: 0;
+
+      width: 31px;
+      height: 31px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 8px;
+
+      background: #15151b;
+
+      color: var(--cyan);
+
+      font-size: 11px;
+
+      font-weight: 800;
+    }
+
+    .chapter-name {
+      font-size: 13px;
+
+      color: #e4e6ed;
+    }
+
+    /* =========================================================
+       RESOURCE CARDS
+    ========================================================= */
+
+    .resource-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+    }
+
+    .resource-card {
+      padding: 19px;
+
+      border-radius: 15px;
+
+      border: 1px solid var(--border);
+
+      background: #0b0b10;
+    }
+
+    .resource-type {
+      display: inline-block;
+
+      color: var(--cyan);
+
+      font-size: 9px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.3px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 9px;
+    }
+
+    .resource-card h3 {
+      font-size: 16px;
+
+      margin-bottom: 7px;
+    }
+
+    .resource-card p {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.55;
+    }
+
+    .resource-card button {
+      width: 100%;
+
+      margin-top: 14px;
+
+      padding: 10px;
+
+      border-radius: 9px;
+
+      background: #131319;
+
+      color: white;
+
+      border: 1px solid var(--border);
+
+      transition: .2s;
+    }
+
+    .resource-card button:hover {
+      color: var(--cyan);
+
+      border-color: var(--cyan);
+    }
+
+    /* =========================================================
+       PANELS
+    ========================================================= */
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    .empty {
+      padding: 40px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+      border: 1px dashed var(--border);
+
+      border-radius: 15px;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      margin-top: 70px;
+
+      padding: 32px 20px;
+
+      text-align: center;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    .made-by {
+      margin-top: 8px;
+
+      color: var(--cyan);
+
+      font-weight: 600;
+    }
+
+    .footer-small {
+      margin-top: 8px;
+
+      color: #5f6270;
+
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .grid-4 {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .resource-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .stats {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 720px) {
+
+      .update-bar {
+        height: 34px;
+      }
+
+      .update-label {
+        padding: 0 11px;
+
+        font-size: 9px;
+      }
+
+      .ticker-item {
+        padding: 0 22px;
+
+        font-size: 10px;
+      }
+
+      .nav {
+        padding: 11px 14px;
+      }
+
+      .brand-title {
+        font-size: 14px;
+      }
+
+      .brand-subtitle {
+        font-size: 7px;
+
+        letter-spacing: .35px;
+      }
+
+      .brand-logo {
+        width: 43px;
+        height: 43px;
+      }
+
+      .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+
+        left: 12px;
+        right: 12px;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        border-radius: 14px;
+
+        border: 1px solid var(--border);
+
+        background: #09090d;
+
+        box-shadow: var(--glow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links button {
+        text-align: left;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        min-height: 430px;
+
+        padding:
+          50px 10px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2.5px;
+      }
+
+      .grid,
+      .grid-4,
+      .resource-grid,
+      .chapter-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+
+      main {
+        padding-left: 13px;
+        padding-right: 13px;
+      }
+
+    }
+
+    @media (max-width: 420px) {
+
+      .brand-subtitle {
+        max-width: 185px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .stats {
+        gap: 8px;
+      }
+
+      .stat {
+        padding: 15px 8px;
+      }
+
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-<!-- =======================================================
-     HEADER
-     ======================================================= -->
 
-<header>
+  <!-- =========================================================
+       LIVE UPDATE TICKER
+  ========================================================= -->
 
-<div class="navbar">
+  <div class="update-bar">
 
-    <div class="brand" onclick="goHome()">
+    <div class="update-label">
+      <span class="live-dot"></span>
+      NEW UPDATES
+    </div>
 
-        <!-- PUT YOUR THOEDGE LOGO HERE -->
-        <img src="logo.png" alt="THOEDGE Logo">
+    <div class="ticker-window">
 
-        <div class="brand-text">
+      <div class="ticker" id="ticker">
 
-            <div class="brand-title">
-                THOEDGE JEE HUB
-            </div>
+        <!-- JavaScript automatically fills this -->
 
-            <div class="brand-sub">
-                JEE MAIN • ADVANCED
-            </div>
-
-        </div>
+      </div>
 
     </div>
 
-    <div class="nav-buttons">
-
-        <button class="nav-btn" onclick="goHome()">
-            HOME
-        </button>
-
-        <button class="nav-btn" onclick="showSection('vault-section')">
-            VAULT
-        </button>
-
-        <button class="nav-btn" onclick="showSection('subjects-section')">
-            SUBJECTS
-        </button>
-
-    </div>
-
-</div>
-
-</header>
+  </div>
 
 
-<!-- =======================================================
-     HERO
-     ======================================================= -->
+  <!-- =========================================================
+       HEADER
+  ========================================================= -->
 
-<section class="hero" id="home">
+  <header>
 
-    <div class="badge">
-        <span class="badge-dot"></span>
-        JEE PREPARATION MODE
-    </div>
+    <div class="nav">
 
-    <h1>
-        THOEDGE
-    </h1>
+      <div
+        class="brand"
+        onclick="goHome()"
+      >
 
-    <h2>
-        JEE MAIN & ADVANCED
-    </h2>
-
-    <p>
-        One place for books, notes, formulas, shortcuts,
-        PYQs, DPPs, modules, mock tests and everything
-        you need for your JEE preparation.
-    </p>
-
-    <div class="search-box">
-
-        <span class="search-icon">
-            ⌕
-        </span>
-
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="Search books, chapters, PYQs, formulas, DPPs..."
-            oninput="searchResources()"
+        <img
+          src="logo.png"
+          alt="THOYAJAKSH'S JEE HUB Logo"
+          class="brand-logo"
         >
 
-    </div>
+        <div class="brand-info">
 
-</section>
+          <div class="brand-title">
+            THOYAJAKSH'S JEE HUB
+          </div>
 
-
-<div class="container">
-
-
-<!-- =======================================================
-     STATS
-     ======================================================= -->
-
-<div class="stats">
-
-    <div class="stat">
-        <strong>3</strong>
-        <span>SUBJECTS</span>
-    </div>
-
-    <div class="stat">
-        <strong>2</strong>
-        <span>CLASSES</span>
-    </div>
-
-    <div class="stat">
-        <strong>∞</strong>
-        <span>RESOURCES</span>
-    </div>
-
-    <div class="stat">
-        <strong>24/7</strong>
-        <span>ACCESS</span>
-    </div>
-
-</div>
-
-
-<!-- =======================================================
-     GLOBAL RESOURCE VAULT
-     ======================================================= -->
-
-<section class="section" id="vault-section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <div class="section-title">
-                ⚡ RESOURCE <span>VAULT</span>
-            </div>
-
-            <div class="section-description">
-                Global resources — independent of subjects and chapters.
-            </div>
+          <div class="brand-subtitle">
+            JEE Main • JEE Advanced • BITSAT • Competitive Exams • CBSE 11 & 12
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
 
-    <div class="vault">
+      <nav
+        class="nav-links"
+        id="navLinks"
+      >
 
-        <div class="vault-card accent-blue"
-             onclick="openGlobal('Books')">
-
-            <div class="vault-icon">📚</div>
-
-            <h3>Books</h3>
-
-            <p>
-                JEE reference books and study material.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-cyan"
-             onclick="openGlobal('Guides')">
-
-            <div class="vault-icon">🧭</div>
-
-            <h3>Guides</h3>
-
-            <p>
-                Preparation guides and useful resources.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-purple"
-             onclick="openGlobal('DPPs')">
-
-            <div class="vault-icon">📝</div>
-
-            <h3>DPPs</h3>
-
-            <p>
-                Daily practice problems.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-pink"
-             onclick="openGlobal('Question Banks')">
-
-            <div class="vault-icon">🧠</div>
-
-            <h3>Question Banks</h3>
-
-            <p>
-                Practice collections and problem sets.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-orange"
-             onclick="openGlobal('PYQ Collections')">
-
-            <div class="vault-icon">📑</div>
-
-            <h3>PYQ Collections</h3>
-
-            <p>
-                Previous year question collections.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-green"
-             onclick="openGlobal('Modules')">
-
-            <div class="vault-icon">📦</div>
-
-            <h3>Modules</h3>
-
-            <p>
-                Complete institute-style modules.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-cyan"
-             onclick="openGlobal('Formula Mega Pack')">
-
-            <div class="vault-icon">⚡</div>
-
-            <h3>Formula Mega Pack</h3>
-
-            <p>
-                Formula sheets and revision formulas.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-purple"
-             onclick="openGlobal('Shortcut Vault')">
-
-            <div class="vault-icon">🚀</div>
-
-            <h3>Shortcut Vault</h3>
-
-            <p>
-                Fast methods and JEE shortcuts.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-blue"
-             onclick="openGlobal('NCERT Library')">
-
-            <div class="vault-icon">📘</div>
-
-            <h3>NCERT Library</h3>
-
-            <p>
-                NCERT-focused preparation resources.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-pink"
-             onclick="openGlobal('Mock Tests')">
-
-            <div class="vault-icon">🎯</div>
-
-            <h3>Mock Tests</h3>
-
-            <p>
-                Full and subject-wise mock tests.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-orange"
-             onclick="openGlobal('Revision Material')">
-
-            <div class="vault-icon">🔄</div>
-
-            <h3>Revision</h3>
-
-            <p>
-                Last-minute and rapid revision material.
-            </p>
-
-        </div>
-
-
-        <div class="vault-card accent-purple"
-             onclick="openGlobal('THOEDGE Picks')">
-
-            <div class="vault-icon">💎</div>
-
-            <h3>THOEDGE Picks</h3>
-
-            <p>
-                Resources personally recommended by THOEDGE.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =======================================================
-     GLOBAL RESOURCE DISPLAY
-     ======================================================= -->
-
-<section class="section panel" id="global-panel">
-
-    <button class="back-btn" onclick="closePanel('global-panel')">
-        ← Back to Vault
-    </button>
-
-    <div class="section-heading">
-
-        <div>
-
-            <div class="section-title" id="global-title">
-                Resource
-            </div>
-
-            <div class="section-description">
-                Your Google Drive resources will appear here.
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="resource-grid" id="global-resources"></div>
-
-</section>
-
-
-<!-- =======================================================
-     SUBJECTS
-     ======================================================= -->
-
-<section class="section" id="subjects-section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <div class="section-title">
-                📚 <span>SUBJECTS</span>
-            </div>
-
-            <div class="section-description">
-                Explore Class 11 and Class 12 chapter-wise resources.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="subject-grid">
-
-        <div class="subject-card physics"
-             onclick="openSubject('Physics')">
-
-            <div class="subject-icon">
-                ⚛️
-            </div>
-
-            <h3>Physics</h3>
-
-            <p>
-                Concepts • Formulas • PYQs • Problems
-            </p>
-
-        </div>
-
-
-        <div class="subject-card chemistry"
-             onclick="openSubject('Chemistry')">
-
-            <div class="subject-icon">
-                🧪
-            </div>
-
-            <h3>Chemistry</h3>
-
-            <p>
-                Physical • Organic • Inorganic
-            </p>
-
-        </div>
-
-
-        <div class="subject-card maths"
-             onclick="openSubject('Mathematics')">
-
-            <div class="subject-icon">
-                ∑
-            </div>
-
-            <h3>Mathematics</h3>
-
-            <p>
-                Algebra • Calculus • Coordinate • More
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =======================================================
-     SUBJECT PANEL
-     ======================================================= -->
-
-<section class="section panel" id="subject-panel">
-
-    <button class="back-btn" onclick="closePanel('subject-panel')">
-        ← Back to Subjects
-    </button>
-
-    <div class="section-heading">
-
-        <div>
-
-            <div class="section-title" id="subject-title">
-                Subject
-            </div>
-
-            <div class="section-description">
-                Select your class.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="class-grid">
-
-        <div class="class-card"
-             onclick="openClass(11)">
-
-            <h3>
-                Class 11
-            </h3>
-
-            <p>
-                Complete Class 11 chapter resources
-            </p>
-
-        </div>
-
-
-        <div class="class-card"
-             onclick="openClass(12)">
-
-            <h3>
-                Class 12
-            </h3>
-
-            <p>
-                Complete Class 12 chapter resources
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =======================================================
-     CHAPTER PANEL
-     ======================================================= -->
-
-<section class="section panel" id="chapter-panel">
-
-    <button class="back-btn" onclick="closePanel('chapter-panel')">
-        ← Back
-    </button>
-
-    <div class="section-heading">
-
-        <div>
-
-            <div class="section-title" id="chapter-title">
-                Chapters
-            </div>
-
-            <div class="section-description">
-                Select a chapter.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="chapter-grid" id="chapter-list"></div>
-
-</section>
-
-
-<!-- =======================================================
-     CHAPTER RESOURCE PANEL
-     ======================================================= -->
-
-<section class="section panel" id="chapter-resource-panel">
-
-    <button class="back-btn" onclick="closePanel('chapter-resource-panel')">
-        ← Back to Chapters
-    </button>
-
-    <div class="section-heading">
-
-        <div>
-
-            <div class="section-title" id="chapter-resource-title">
-                Resources
-            </div>
-
-            <div class="section-description">
-                Chapter-wise resources.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="resource-grid" id="chapter-resources"></div>
-
-</section>
-
-
-<!-- =======================================================
-     JEE SECTIONS
-     ======================================================= -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <div class="section-title">
-                🎯 <span>JEE SECTIONS</span>
-            </div>
-
-            <div class="section-description">
-                Dedicated preparation areas.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="jee-grid">
-
-        <div class="jee-card">
-
-            <h3>
-                JEE Main
-            </h3>
-
-            <p>
-                PYQs, mock tests, revision resources,
-                formulas, important questions and
-                Main-focused preparation.
-            </p>
-
-            <button onclick="openGlobal('JEE Main')">
-                Open JEE Main →
-            </button>
-
-        </div>
-
-
-        <div class="jee-card">
-
-            <h3>
-                JEE Advanced
-            </h3>
-
-            <p>
-                Advanced PYQs, challenging problems,
-                concepts, revision and Advanced-focused
-                resources.
-            </p>
-
-            <button onclick="openGlobal('JEE Advanced')">
-                Open JEE Advanced →
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =======================================================
-     SEARCH RESULTS
-     ======================================================= -->
-
-<section class="section panel" id="search-panel">
-
-    <div class="section-heading">
-
-        <div>
-
-            <div class="section-title">
-                🔎 SEARCH <span>RESULTS</span>
-            </div>
-
-            <div class="section-description">
-                Matching resources and chapters.
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="resource-grid" id="search-results"></div>
-
-</section>
-
-
-</div>
-
-
-<!-- =======================================================
-     FOOTER
-     ======================================================= -->
-
-<footer>
-
-    <div class="footer-logo">
-        THOEDGE JEE HUB
-    </div>
-
-    <div class="footer-line"></div>
-
-    <p>
-        JEE Main & Advanced • Study • Practice • Improve
-    </p>
-
-    <p>
-        Built with ⚡ by THOEDGE
-    </p>
-
-</footer>
-
-
-<script>
-
-/* =========================================================
-   THOEDGE JEE HUB DATA
-   ========================================================= */
-
-
-/* ---------------------------------------------------------
-   GLOBAL RESOURCE VAULT
-
-   ADD YOUR GOOGLE DRIVE LINKS HERE.
-   --------------------------------------------------------- */
-
-const globalResources = {
-
-    "Books": [
-
-        {
-            title: "Physics Reference Book",
-            description: "Add your Google Drive book link here.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Chemistry Reference Book",
-            description: "Add your Google Drive book link here.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Mathematics Reference Book",
-            description: "Add your Google Drive book link here.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "Guides": [
-
-        {
-            title: "JEE Preparation Guide",
-            description: "Complete preparation guide.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "DPPs": [
-
-        {
-            title: "Physics DPP Collection",
-            description: "Daily Practice Problems.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Chemistry DPP Collection",
-            description: "Daily Practice Problems.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Mathematics DPP Collection",
-            description: "Daily Practice Problems.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "Question Banks": [
-
-        {
-            title: "JEE Question Bank",
-            description: "Important practice questions.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "PYQ Collections": [
-
-        {
-            title: "JEE Main PYQ Collection",
-            description: "Previous Year Questions.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "JEE Advanced PYQ Collection",
-            description: "Previous Year Questions.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "Modules": [
-
-        {
-            title: "Physics Module",
-            description: "Complete Physics module.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Chemistry Module",
-            description: "Complete Chemistry module.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Mathematics Module",
-            description: "Complete Mathematics module.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "Formula Mega Pack": [
-
-        {
-            title: "Physics Formula Mega Pack",
-            description: "Complete Physics formula collection.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Chemistry Formula Mega Pack",
-            description: "Complete Chemistry formula collection.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Mathematics Formula Mega Pack",
-            description: "Complete Mathematics formula collection.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "Shortcut Vault": [
-
-        {
-            title: "Physics Shortcuts",
-            description: "Quick methods and shortcuts.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Chemistry Shortcuts",
-            description: "Quick methods and shortcuts.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "Mathematics Shortcuts",
-            description: "Quick methods and shortcuts.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "NCERT Library": [
-
-        {
-            title: "NCERT Physics",
-            description: "NCERT Physics resources.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "NCERT Chemistry",
-            description: "NCERT Chemistry resources.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "NCERT Mathematics",
-            description: "NCERT Mathematics resources.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "Mock Tests": [
-
-        {
-            title: "JEE Main Mock Tests",
-            description: "Mock test collection.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "JEE Advanced Mock Tests",
-            description: "Mock test collection.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "Revision Material": [
-
-        {
-            title: "Rapid Revision Pack",
-            description: "Quick revision resources.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "THOEDGE Picks": [
-
-        {
-            title: "THOEDGE Recommended Resources",
-            description: "Resources selected for JEE preparation.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "JEE Main": [
-
-        {
-            title: "JEE Main PYQs",
-            description: "JEE Main previous year questions.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "JEE Main Mock Tests",
-            description: "JEE Main mock tests.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ],
-
-
-    "JEE Advanced": [
-
-        {
-            title: "JEE Advanced PYQs",
-            description: "JEE Advanced previous year questions.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        },
-
-        {
-            title: "JEE Advanced Problems",
-            description: "Advanced-level practice problems.",
-            link: "YOUR_GOOGLE_DRIVE_LINK"
-        }
-
-    ]
-
-};
-
-
-/* =========================================================
-   CHAPTER DATABASE
-   ========================================================= */
-
-const chapters = {
-
-    Physics: {
-
-        11: [
-            "Units & Measurements",
-            "Motion in a Straight Line",
-            "Motion in a Plane",
-            "Laws of Motion",
-            "Work, Energy & Power",
-            "System of Particles & Rotational Motion",
-            "Gravitation",
-            "Mechanical Properties of Solids",
-            "Mechanical Properties of Fluids",
-            "Thermal Properties of Matter",
-            "Thermodynamics",
-            "Kinetic Theory",
-            "Oscillations",
-            "Waves"
-        ],
-
-        12: [
-            "Electric Charges & Fields",
-            "Electrostatic Potential & Capacitance",
-            "Current Electricity",
-            "Moving Charges & Magnetism",
-            "Magnetism & Matter",
-            "Electromagnetic Induction",
-            "Alternating Current",
-            "Electromagnetic Waves",
-            "Ray Optics & Optical Instruments",
-            "Wave Optics",
-            "Dual Nature of Radiation & Matter",
-            "Atoms",
-            "Nuclei",
-            "Semiconductor Electronics"
-        ]
-
-    },
-
-
-    Chemistry: {
-
-        11: [
-            "Some Basic Concepts of Chemistry",
-            "Structure of Atom",
-            "Classification of Elements",
-            "Chemical Bonding",
-            "Thermodynamics",
-            "Equilibrium",
-            "Redox Reactions",
-            "Organic Chemistry — Basic Principles",
-            "Hydrocarbons"
-        ],
-
-        12: [
-            "Solutions",
-            "Electrochemistry",
-            "Chemical Kinetics",
-            "Coordination Compounds",
-            "Haloalkanes & Haloarenes",
-            "Alcohols, Phenols & Ethers",
-            "Aldehydes, Ketones & Carboxylic Acids",
-            "Amines",
-            "Biomolecules",
-            "d & f Block Elements"
-        ]
-
-    },
-
-
-    Mathematics: {
-
-        11: [
-            "Sets",
-            "Relations & Functions",
-            "Trigonometric Functions",
-            "Complex Numbers",
-            "Quadratic Equations",
-            "Permutations & Combinations",
-            "Binomial Theorem",
-            "Sequences & Series",
-            "Straight Lines",
-            "Conic Sections",
-            "Limits & Derivatives",
-            "Statistics",
-            "Probability"
-        ],
-
-        12: [
-            "Relations & Functions",
-            "Inverse Trigonometric Functions",
-            "Matrices",
-            "Determinants",
-            "Continuity & Differentiability",
-            "Applications of Derivatives",
-            "Integrals",
-            "Applications of Integrals",
-            "Differential Equations",
-            "Vector Algebra",
-            "Three Dimensional Geometry",
-            "Probability"
-        ]
-
-    }
-
-};
-
-
-/* =========================================================
-   CHAPTER RESOURCE TYPES
-   ========================================================= */
-
-const resourceTypes = [
-
-    "Books",
-    "Guides",
-    "Theory",
-    "Formula Sheet",
-    "Shortcuts",
-    "JEE Main PYQs",
-    "JEE Advanced PYQs",
-    "Important Questions",
-    "My Notes",
-    "My Recommendation",
-    "DPPs",
-    "Question Bank",
-    "Google Drive PDFs"
-
-];
-
-
-/* =========================================================
-   CHAPTER RESOURCES
-   =========================================================
-
-   You can add actual resources here later.
-
-   Example:
-
-   chapterResources["Physics|11|Kinematics|Theory"] = [
-       {
-           title: "Kinematics Theory",
-           description: "Complete theory notes",
-           link: "GOOGLE_DRIVE_LINK"
-       }
-   ];
-
-   ========================================================= */
-
-const chapterResources = {};
-
-
-/* =========================================================
-   CURRENT STATE
-   ========================================================= */
-
-let currentSubject = "";
-let currentClass = 11;
-
-
-/* =========================================================
-   HOME
-   ========================================================= */
-
-function goHome() {
-
-    hideAllPanels();
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =========================================================
-   HIDE PANELS
-   ========================================================= */
-
-function hideAllPanels() {
-
-    document.querySelectorAll(".panel").forEach(panel => {
-        panel.classList.remove("active");
-    });
-
-}
-
-
-/* =========================================================
-   SHOW SECTION
-   ========================================================= */
-
-function showSection(id) {
-
-    const element = document.getElementById(id);
-
-    if (element) {
-
-        element.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
-
-}
-
-
-/* =========================================================
-   CLOSE PANEL
-   ========================================================= */
-
-function closePanel(id) {
-
-    document.getElementById(id)
-        .classList.remove("active");
-
-}
-
-
-/* =========================================================
-   OPEN SUBJECT
-   ========================================================= */
-
-function openSubject(subject) {
-
-    currentSubject = subject;
-
-    hideAllPanels();
-
-    document.getElementById("subject-title")
-        .innerText = subject;
-
-    document.getElementById("subject-panel")
-        .classList.add("active");
-
-    document.getElementById("subject-panel")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-}
-
-
-/* =========================================================
-   OPEN CLASS
-   ========================================================= */
-
-function openClass(classNumber) {
-
-    currentClass = classNumber;
-
-    hideAllPanels();
-
-    document.getElementById("chapter-title")
-        .innerText =
-        currentSubject + " • Class " + classNumber;
-
-    const list =
-        document.getElementById("chapter-list");
-
-    list.innerHTML = "";
-
-    const chapterArray =
-        chapters[currentSubject][classNumber];
-
-    chapterArray.forEach((chapter, index) => {
-
-        const div =
-            document.createElement("div");
-
-        div.className = "chapter";
-
-        div.onclick = function() {
-
-            openChapter(chapter);
-
-        };
-
-        div.innerHTML = `
-
-            <span class="chapter-number">
-                CHAPTER ${index + 1}
-            </span>
-
-            <span class="chapter-name">
-                ${chapter}
-            </span>
-
-        `;
-
-        list.appendChild(div);
-
-    });
-
-
-    document.getElementById("chapter-panel")
-        .classList.add("active");
-
-    document.getElementById("chapter-panel")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-}
-
-
-/* =========================================================
-   OPEN CHAPTER
-   ========================================================= */
-
-function openChapter(chapter) {
-
-    hideAllPanels();
-
-    document.getElementById("chapter-resource-title")
-        .innerText =
-        currentSubject +
-        " • Class " +
-        currentClass +
-        " • " +
-        chapter;
-
-
-    const container =
-        document.getElementById("chapter-resources");
-
-    container.innerHTML = "";
-
-
-    resourceTypes.forEach(type => {
-
-        const key =
-            currentSubject +
-            "|" +
-            currentClass +
-            "|" +
-            chapter +
-            "|" +
-            type;
-
-
-        const items =
-            chapterResources[key] || [];
-
-
-        if (items.length === 0) {
-
-            const card =
-                document.createElement("div");
-
-            card.className = "resource-card";
-
-            card.innerHTML = `
-
-                <span class="resource-type">
-                    ${type}
-                </span>
-
-                <h3>
-                    ${type}
-                </h3>
-
-                <p>
-                    Resource coming soon.
-                </p>
-
-            `;
-
-            container.appendChild(card);
-
-        } else {
-
-            items.forEach(item => {
-
-                container.appendChild(
-                    createResourceCard(
-                        item,
-                        type
-                    )
-                );
-
-            });
-
-        }
-
-    });
-
-
-    document.getElementById("chapter-resource-panel")
-        .classList.add("active");
-
-    document.getElementById("chapter-resource-panel")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-}
-
-
-/* =========================================================
-   OPEN GLOBAL RESOURCE
-   ========================================================= */
-
-function openGlobal(category) {
-
-    hideAllPanels();
-
-    document.getElementById("global-title")
-        .innerText = category;
-
-
-    const container =
-        document.getElementById("global-resources");
-
-    container.innerHTML = "";
-
-
-    const items =
-        globalResources[category] || [];
-
-
-    if (items.length === 0) {
-
-        container.innerHTML = `
-
-            <div class="empty">
-                No resources added yet.
-            </div>
-
-        `;
-
-    } else {
-
-        items.forEach(item => {
-
-            container.appendChild(
-                createResourceCard(
-                    item,
-                    category
-                )
-            );
-
-        });
-
-    }
-
-
-    document.getElementById("global-panel")
-        .classList.add("active");
-
-    document.getElementById("global-panel")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-}
-
-
-/* =========================================================
-   CREATE RESOURCE CARD
-   ========================================================= */
-
-function createResourceCard(item, type) {
-
-    const card =
-        document.createElement("div");
-
-    card.className = "resource-card";
-
-    card.innerHTML = `
-
-        <span class="resource-type">
-            ${type}
-        </span>
-
-        <h3>
-            ${item.title}
-        </h3>
-
-        <p>
-            ${item.description || ""}
-        </p>
-
-        <a
-            class="resource-btn"
-            href="${item.link}"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Open Resource →
-        </a>
-
-    `;
-
-    return card;
-
-}
-
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-function searchResources() {
-
-    const query =
-        document.getElementById("searchInput")
-            .value
-            .trim()
-            .toLowerCase();
-
-
-    if (!query) {
-
-        document.getElementById("search-panel")
-            .classList.remove("active");
-
-        return;
-
-    }
-
-
-    hideAllPanels();
-
-    const results =
-        document.getElementById("search-results");
-
-    results.innerHTML = "";
-
-
-    /* Search global resources */
-
-    Object.keys(globalResources)
-        .forEach(category => {
-
-            globalResources[category]
-                .forEach(item => {
-
-                    const text =
-                        (
-                            category +
-                            " " +
-                            item.title +
-                            " " +
-                            item.description
-                        ).toLowerCase();
-
-
-                    if (text.includes(query)) {
-
-                        results.appendChild(
-                            createResourceCard(
-                                item,
-                                category
-                            )
-                        );
-
-                    }
-
-                });
-
-        });
-
-
-    /* Search chapters */
-
-    Object.keys(chapters)
-        .forEach(subject => {
-
-            Object.keys(chapters[subject])
-                .forEach(classNumber => {
-
-                    chapters[subject][classNumber]
-                        .forEach(chapter => {
-
-                            if (
-                                chapter
-                                    .toLowerCase()
-                                    .includes(query)
-                            ) {
-
-                                const card =
-                                    document.createElement("div");
-
-                                card.className =
-                                    "resource-card";
-
-                                card.innerHTML = `
-
-                                    <span class="resource-type">
-                                        CHAPTER
-                                    </span>
-
-                                    <h3>
-                                        ${chapter}
-                                    </h3>
-
-                                    <p>
-                                        ${subject}
-                                        • Class
-                                        ${classNumber}
-                                    </p>
-
-                                    <button
-                                        class="resource-btn"
-                                        onclick="
-                                        openSubject('${subject}');
-                                        setTimeout(
-                                            () => openClass(${classNumber}),
-                                            100
-                                        );
-                                        "
-                                    >
-                                        Open Chapter →
-                                    </button>
-
-                                `;
-
-                                results.appendChild(card);
-
-                            }
-
-                        });
-
-                });
-
-        });
-
-
-    if (!results.children.length) {
-
-        results.innerHTML = `
-
-            <div class="empty">
-                No matching resources found.
-            </div>
-
-        `;
-
-    }
-
-
-    document.getElementById("search-panel")
-        .classList.add("active");
-
-}
-
-
-/* =========================================================
-   START
-   ========================================================= */
-
-goHome();
-
-</script>
-
-</body>
-</html>
+        <button onclick="goHome()">
+          Ho
