@@ -1004,6 +1004,12 @@ footer p {
         min-height: 65px;
     }
 
+   
+   #search-panel {
+    scroll-margin-top: 90px;
+   }
+   
+
     .brand img {
         width: 40px;
         height: 40px;
@@ -2525,7 +2531,7 @@ function createResourceCard(item, type) {
    SEARCH
    ========================================================= */
 
-function searchResources() {
+   function searchResources() {
 
     const query =
         document.getElementById("searchInput")
@@ -2533,11 +2539,18 @@ function searchResources() {
             .trim()
             .toLowerCase();
 
+    const searchPanel =
+        document.getElementById("search-panel");
+
+    const results =
+        document.getElementById("search-results");
+
+
+    /* If search box is empty */
 
     if (!query) {
 
-        document.getElementById("search-panel")
-            .classList.remove("active");
+        searchPanel.classList.remove("active");
 
         return;
 
@@ -2546,13 +2559,12 @@ function searchResources() {
 
     hideAllPanels();
 
-    const results =
-        document.getElementById("search-results");
-
     results.innerHTML = "";
 
 
-    /* Search global resources */
+    /* =====================================================
+       SEARCH GLOBAL RESOURCES
+       ===================================================== */
 
     Object.keys(globalResources)
         .forEach(category => {
@@ -2586,7 +2598,9 @@ function searchResources() {
         });
 
 
-    /* Search chapters */
+    /* =====================================================
+       SEARCH CHAPTERS
+       ===================================================== */
 
     Object.keys(chapters)
         .forEach(subject => {
@@ -2628,11 +2642,11 @@ function searchResources() {
                                     <button
                                         class="resource-btn"
                                         onclick="
-                                        openSubject('${subject}');
-                                        setTimeout(
-                                            () => openClass(${classNumber}),
-                                            100
-                                        );
+                                            openSubject('${subject}');
+                                            setTimeout(
+                                                () => openClass(${classNumber}),
+                                                100
+                                            );
                                         "
                                     >
                                         Open Chapter →
@@ -2651,6 +2665,10 @@ function searchResources() {
         });
 
 
+    /* =====================================================
+       NO RESULTS
+       ===================================================== */
+
     if (!results.children.length) {
 
         results.innerHTML = `
@@ -2664,10 +2682,27 @@ function searchResources() {
     }
 
 
-    document.getElementById("search-panel")
-        .classList.add("active");
+    /* =====================================================
+       SHOW SEARCH RESULTS
+       ===================================================== */
 
-}
+    searchPanel.classList.add("active");
+
+
+    /* =====================================================
+       AUTO-SCROLL TO SEARCH RESULTS
+       ===================================================== */
+
+    setTimeout(() => {
+
+        searchPanel.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }, 50);
+
+   }
 
 
 /* =========================================================
