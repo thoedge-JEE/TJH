@@ -892,18 +892,24 @@ header {
     font-size: 13px;
 }
 
+
+/* TWO CARDS PER ROW */
+
 .competitive-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
 }
 
+
+/* SAME STYLE AS JEE CARDS */
+
 .competitive-card {
-    background: rgba(15, 15, 25, 0.78);
+    background: rgba(10, 10, 20, 0.78);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
     padding: 22px;
-    min-height: 180px;
+    min-height: 150px;
     transition: 0.3s ease;
 }
 
@@ -957,14 +963,29 @@ header {
     }
 
     .competitive-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .competitive-card {
-        min-height: auto;
+        min-height: 150px;
+        padding: 16px;
     }
 
+    .competitive-card h3 {
+        font-size: 15px;
+    }
+
+    .competitive-card p {
+        font-size: 10px;
+    }
+
+    .competitive-card button {
+        font-size: 9px;
+        padding: 7px 9px;
+    }
 }
+
 /* =========================================================
    STATS
    ========================================================= */
