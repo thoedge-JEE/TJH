@@ -1162,10 +1162,11 @@ footer p {
         </span>
 
         <input
-            id="searchInput"
-            type="text"
-            placeholder="Search books, chapters, PYQs, formulas, DPPs..."
-            oninput="searchResources()"
+    id="searchInput"
+    type="text"
+    placeholder="Search books, chapters, PYQs, formulas, DPPs..."
+    oninput="searchResources(false)"
+    onkeydown="if(event.key === 'Enter') searchResources(true)"
         >
 
     </div>
@@ -2531,7 +2532,7 @@ function createResourceCard(item, type) {
    SEARCH
    ========================================================= */
 
-   function searchResources() {
+   function searchResources(shouldScroll = false) {
 
     const query =
         document.getElementById("searchInput")
@@ -2553,7 +2554,6 @@ function createResourceCard(item, type) {
         searchPanel.classList.remove("active");
 
         return;
-
     }
 
 
@@ -2690,17 +2690,21 @@ function createResourceCard(item, type) {
 
 
     /* =====================================================
-       AUTO-SCROLL TO SEARCH RESULTS
+       SCROLL ONLY AFTER ENTER
        ===================================================== */
 
-    setTimeout(() => {
+    if (shouldScroll) {
 
-        searchPanel.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+        setTimeout(() => {
 
-    }, 50);
+            searchPanel.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }, 100);
+
+    }
 
    }
 
