@@ -10,8 +10,1220 @@
 content="THOYAJAKSH'S JEE HUB — JEE Main & Advanced ,preparation resources, books, notes, formulas, shortcuts, PYQs, DPPs and more.">
 
 <style>
-                    
-    
+
+
+/* =========================================================
+   THOYAJAKSH'S JEE HUB
+   GEN-Z BLACK TECH UI
+   ========================================================= */
+
+:root {
+    --bg: #050507;
+    --bg2: #080811;
+    --card: #0d0d16;
+    --card2: #11111d;
+
+    --white: #ffffff;
+    --text: #e9e9f2;
+    --muted: #9292a7;
+
+    --blue: #00aaff;
+    --cyan: #00f0ff;
+    --purple: #8b5cf6;
+    --pink: #ff3cac;
+    --orange: #ff9d00;
+    --green: #00ff9d;
+    --red: #ff416c;
+
+    --border: rgba(255,255,255,0.09);
+
+    --glow-blue: 0 0 25px rgba(0,170,255,0.30);
+    --glow-purple: 0 0 25px rgba(139,92,246,0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(0,170,255,0.08), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(139,92,246,0.08), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(255,60,172,0.05), transparent 35%),
+        var(--bg);
+
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Grid background */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    position: relative;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(5,5,7,0.86);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+
+    min-height: 75px;
+
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    cursor: pointer;
+}
+
+.brand img {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+
+    background: white;
+
+    padding: 4px;
+
+    box-shadow:
+        0 0 15px rgba(0,170,255,0.3);
+}
+
+.brand-text {
+    line-height: 1.1;
+}
+
+.brand-title {
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    background: linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--blue),
+        var(--purple),
+        var(--pink)
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.brand-sub {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-btn {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.035);
+
+    color: var(--text);
+
+    padding: 9px 13px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition: 0.25s;
+}
+
+.nav-btn:hover {
+    border-color: var(--blue);
+    color: var(--cyan);
+    box-shadow: var(--glow-blue);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    max-width: 1250px;
+    margin: auto;
+
+    padding: 75px 20px 45px;
+
+    text-align: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    border: 1px solid rgba(0,240,255,0.25);
+
+    background: rgba(0,240,255,0.05);
+
+    border-radius: 100px;
+
+    color: var(--cyan);
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    box-shadow: var(--glow-blue);
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow: 0 0 12px var(--green);
+}
+
+.hero h1 {
+    margin-top: 25px;
+
+    font-size: clamp(42px, 8vw, 85px);
+
+    line-height: 0.95;
+
+    font-weight: 1000;
+
+    letter-spacing: -4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            var(--cyan),
+            var(--blue),
+            var(--purple),
+            var(--pink)
+        );
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    text-shadow: 0 0 30px rgba(0,170,255,0.15);
+}
+
+.hero h2 {
+    margin-top: 20px;
+
+    font-size: clamp(16px, 3vw, 25px);
+
+    color: #bcbccc;
+
+    font-weight: 500;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 18px auto 0;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-box {
+    max-width: 750px;
+    margin: 32px auto 0;
+
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+
+    padding: 17px 20px 17px 50px;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(0,170,255,0.25);
+
+    background: rgba(10,10,18,0.9);
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 0 25px rgba(0,170,255,0.07);
+
+    transition: 0.25s;
+}
+
+.search-box input:focus {
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 0 25px rgba(0,240,255,0.15);
+}
+
+.search-icon {
+    position: absolute;
+
+    left: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--cyan);
+
+    font-size: 18px;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.container {
+    max-width: 1250px;
+    margin: auto;
+
+    padding: 20px;
+}
+
+.section {
+    margin: 55px 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-bottom: 20px;
+
+    gap: 15px;
+}
+
+.section-title {
+    font-size: 25px;
+
+    color: white;
+
+    font-weight: 900;
+}
+
+.section-title span {
+    color: var(--cyan);
+}
+
+.section-description {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+/* =========================================================
+   RESOURCE VAULT
+   ========================================================= */
+
+.vault {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 13px;
+}
+
+.vault-card {
+    position: relative;
+
+    padding: 20px;
+
+    min-height: 135px;
+
+    border-radius: 17px;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.06),
+            rgba(255,255,255,0.015)
+        );
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+.vault-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -50px;
+    bottom: -50px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    filter: blur(35px);
+
+    opacity: 0.12;
+}
+
+.vault-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--accent);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.4),
+        0 0 20px color-mix(
+            in srgb,
+            var(--accent),
+            transparent 75%
+        );
+}
+
+.vault-icon {
+    font-size: 28px;
+
+    margin-bottom: 13px;
+}
+
+.vault-card h3 {
+    font-size: 15px;
+
+    color: white;
+}
+
+.vault-card p {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 7px;
+
+    line-height: 1.5;
+}
+#vault-section {
+    display: none;
+}  
+
+/* =========================================================
+   SUBJECT CARDS
+   ========================================================= */
+
+.subject-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 18px;
+}
+
+.subject-card {
+    position: relative;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    min-height: 190px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    transition: 0.3s;
+
+    cursor: pointer;
+}
+
+.subject-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+}
+
+.subject-card.physics:hover {
+    border-color: var(--blue);
+}
+
+.subject-card.chemistry:hover {
+    border-color: var(--pink);
+}
+
+.subject-card.maths:hover {
+    border-color: var(--purple);
+}
+
+.subject-icon {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.subject-card h3 {
+    font-size: 22px;
+
+    color: white;
+}
+
+.subject-card p {
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+/* =========================================================
+   CLASS / CHAPTER AREA
+   ========================================================= */
+
+.panel {
+    display: none;
+
+    margin-top: 25px;
+
+    animation: fadeIn 0.3s ease;
+}
+
+.panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.back-btn {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    padding: 9px 13px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,0.04);
+
+    color: var(--cyan);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+.class-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 16px;
+}
+
+.class-card {
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        145deg,
+        #11111b,
+        #09090e
+    );
+
+    border: 1px solid var(--border);
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.class-card:hover {
+    border-color: var(--cyan);
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--glow-blue);
+}
+
+.class-card h3 {
+    font-size: 20px;
+}
+
+.class-card p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 8px;
+}
+
+/* =========================================================
+   CHAPTER GRID
+   ========================================================= */
+
+.chapter-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 11px;
+}
+
+.chapter {
+    padding: 15px;
+
+    border-radius: 13px;
+
+    background: rgba(255,255,255,0.035);
+
+    border: 1px solid var(--border);
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.chapter:hover {
+    border-color: var(--blue);
+
+    color: var(--cyan);
+
+    background: rgba(0,170,255,0.06);
+}
+
+.chapter-number {
+    color: var(--blue);
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+.chapter-name {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    color: #e8e8ef;
+}
+
+/* =========================================================
+   RESOURCE LIST
+   ========================================================= */
+
+.resource-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 14px;
+}
+
+.resource-card {
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.018)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    transition: 0.25s;
+}
+
+.resource-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(0,240,255,0.5);
+
+    box-shadow: var(--glow-blue);
+}
+
+.resource-type {
+    display: inline-block;
+
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    background: rgba(0,170,255,0.08);
+
+    color: var(--cyan);
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+.resource-card h3 {
+    margin-top: 12px;
+    font-size: 15px;
+    color: white;
+}
+
+.resource-card p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.resource-btn {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 9px 13px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--purple)
+        );
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.resource-btn:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 20px rgba(0,170,255,0.3);
+}
+
+/* =========================================================
+   JEE CARDS
+   ========================================================= */
+
+.jee-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 18px;
+}
+
+.jee-card {
+    padding: 25px;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(139,92,246,0.08),
+            rgba(0,170,255,0.03)
+        );
+}
+
+.jee-card h3 {
+    font-size: 22px;
+}
+
+.jee-card p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    margin-top: 9px;
+}
+
+.jee-card button {
+    margin-top: 17px;
+
+    padding: 10px 15px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,0.05);
+
+    color: white;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+}
+/* =========================================================
+   COMPETITIVE EXAMS
+   ========================================================= */
+
+.competitive-exams {
+    padding: 55px 0;
+    max-width: 1200px;
+    margin: auto;
+}
+.competitive-exams .section-title {
+    margin-left: 0;
+    padding-left: 0;
+}
+.competitive-exams .section-title {
+    margin-bottom: 25px;
+}
+
+.competitive-exams .section-title h2 {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.competitive-exams .section-title h2 span {
+    color: #00eaff;
+}
+
+.competitive-exams .section-title p {
+    color: #8d8d9d;
+    font-size: 13px;
+}
+
+
+/* TWO CARDS PER ROW */
+
+.competitive-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+
+/* SAME STYLE AS JEE CARDS */
+
+.competitive-card {
+    background: rgba(10, 10, 20, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 22px;
+    min-height: 150px;
+    transition: 0.3s ease;
+}
+
+.competitive-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 234, 255, 0.5);
+    box-shadow: 0 0 22px rgba(0, 234, 255, 0.12);
+}
+
+.exam-icon {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.competitive-card h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.competitive-card p {
+    color: #9999a8;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.competitive-card button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 9px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 11px;
+    transition: 0.25s ease;
+}
+
+.competitive-card button:hover {
+    border-color: #00eaff;
+    color: #00eaff;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .competitive-exams {
+        padding: 40px 0;
+    }
+
+    .competitive-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .competitive-card {
+        min-height: 150px;
+        padding: 16px;
+    }
+
+    .competitive-card h3 {
+        font-size: 15px;
+    }
+
+    .competitive-card p {
+        font-size: 10px;
+    }
+
+    .competitive-card button {
+        font-size: 9px;
+        padding: 7px 9px;
+    }
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin: 35px auto;
+
+    max-width: 900px;
+}
+
+.stat {
+    padding: 18px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.025);
+}
+
+.stat strong {
+    display: block;
+
+    font-size: 24px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple)
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+.stat span {
+    font-size: 10px;
+
+    color: var(--muted);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    margin-top: 80px;
+
+    padding: 45px 20px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+
+    background: rgba(0,0,0,0.3);
+}
+
+.footer-logo {
+    font-size: 13px;
+
+    font-weight: 900;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--blue),
+            var(--purple),
+            var(--pink)
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+footer p {
+    margin-top: 9px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.footer-line {
+    width: 100px;
+
+    height: 2px;
+
+    margin: 18px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple),
+            var(--pink)
+        );
+
+    border-radius: 10px;
+}
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty {
+    padding: 40px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    border: 1px dashed var(--border);
+
+    border-radius: 15px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width: 700px) {
+
+    .navbar {
+        min-height: 65px;
+    }
+   
+   .search-panel {
+    scroll-margin-top: 90px;
+   }
+   
+   #subject-panel {
+    scroll-margin-top: 100px;
+   }
+   .brand img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-title {
+        font-size: 15px;
+    }
+
+    .brand-sub {
+        font-size: 8px;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .section {
+        margin: 40px 0;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-title {
+        font-size: 21px;
+    }
+}
+
+/* =========================================================
+   SPECIAL ACCENTS
+   ========================================================= */
+
+.accent-blue {
+    --accent: var(--blue);
+}
+
+.accent-cyan {
+    --accent: var(--cyan);
+}
+
+.accent-purple {
+    --accent: var(--purple);
+}
+
+.accent-pink {
+    --accent: var(--pink);
+}
+
+.accent-orange {
+    --accent: var(--orange);
+}
+
+.accent-green {
+    --accent: var(--green);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   
 
 </style>
