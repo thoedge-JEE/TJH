@@ -758,18 +758,9 @@ header {
     letter-spacing: 0.5px;
 }
 .resource-card h3 {
-    margin-top: 0;
-    font-size: 18px;
-    color: var(--cyan);
-    font-weight: 800;
-}
-
-.resource-main-title {
-    min-height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    margin-top: 12px;
+    font-size: 15px;
+    color: white;
 }
 
 .resource-card p {
@@ -2768,8 +2759,12 @@ function createResourceCard(item, type) {
     card.className = "resource-card";
 
     card.innerHTML = `
-    <h3 class="resource-main-title">
+    <span class="resource-type">
         ${type}
+    </span>
+
+    <h3>
+        ${item.title}
     </h3>
 
     <p>
