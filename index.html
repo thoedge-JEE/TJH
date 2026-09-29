@@ -864,7 +864,107 @@ header {
 
     cursor: pointer;
 }
+/* =========================================================
+   COMPETITIVE EXAMS
+   ========================================================= */
 
+.competitive-exams {
+    padding: 55px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.competitive-exams .section-title {
+    margin-bottom: 25px;
+}
+
+.competitive-exams .section-title h2 {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.competitive-exams .section-title h2 span {
+    color: #00eaff;
+}
+
+.competitive-exams .section-title p {
+    color: #8d8d9d;
+    font-size: 13px;
+}
+
+.competitive-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.competitive-card {
+    background: rgba(15, 15, 25, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 22px;
+    min-height: 180px;
+    transition: 0.3s ease;
+}
+
+.competitive-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 234, 255, 0.5);
+    box-shadow: 0 0 22px rgba(0, 234, 255, 0.12);
+}
+
+.exam-icon {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.competitive-card h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.competitive-card p {
+    color: #9999a8;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.competitive-card button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 9px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 11px;
+    transition: 0.25s ease;
+}
+
+.competitive-card button:hover {
+    border-color: #00eaff;
+    color: #00eaff;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .competitive-exams {
+        padding: 40px 12px;
+    }
+
+    .competitive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .competitive-card {
+        min-height: auto;
+    }
+
+}
 /* =========================================================
    STATS
    ========================================================= */
@@ -2661,7 +2761,14 @@ function createResourceCard(item, type) {
     return card;
 
 }
+/* =========================================================
+   COMPETITIVE EXAM NAVIGATION
+   ========================================================= */
 
+function openCompetitiveExam(exam) {
+    openGlobal(exam);
+}
+   
 
 /* =========================================================
    SEARCH
