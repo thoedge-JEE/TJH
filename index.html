@@ -1111,7 +1111,136 @@ header {
     border-color: #00eaff;
     color: #00eaff;
 }
+/* ================= PROGRESS & ANALYSIS ================= */
 
+.progress-panel {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 30px;
+    background: var(--bg);
+}
+
+.progress-header {
+    max-width: 1100px;
+    margin: 0 auto 25px;
+}
+
+.progress-header h2 {
+    margin-top: 20px;
+    font-size: 28px;
+}
+
+.progress-header p {
+    color: var(--muted);
+}
+
+.back-btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.06);
+    color: white;
+    cursor: pointer;
+}
+
+.progress-inputs {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.progress-inputs input,
+.progress-inputs button {
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.06);
+    color: white;
+}
+
+.progress-inputs button {
+    cursor: pointer;
+}
+
+.progress-stats {
+    max-width: 1100px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.progress-stat {
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.05);
+}
+
+.progress-stat span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.progress-stat strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 25px;
+}
+
+.analysis-box {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 22px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.05);
+}
+
+.analysis-box p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.progress-table-wrapper {
+    max-width: 1100px;
+    margin: 20px auto;
+    overflow-x: auto;
+}
+
+.progress-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.progress-table th,
+.progress-table td {
+    padding: 13px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+.progress-table th {
+    color: white;
+}
+
+.progress-table td {
+    color: var(--muted);
+}
+
+.clear-progress {
+    display: block;
+    margin: 25px auto;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
 /* MOBILE */
 
@@ -2046,6 +2175,7 @@ footer p {
     </div>
 
 </section>
+
 <!-- =========================================================
      COMPETITIVE EXAMS
      ========================================================= -->
@@ -3195,8 +3325,24 @@ function openCompetitiveExam(exam) {
    ========================================================= */
 
 goHome();
-
 </script>
+
+<!-- ================= PROGRESS & ANALYSIS ================= -->
+
+<div id="progressPanel" class="progress-panel">
+
+    <div class="progress-header">
+        <button onclick="closeProgressAnalysis()" class="back-btn">
+            ← Back
+        </button>
+
+        <h2>📊 Progress & Analysis</h2>
+        <p>Track your JEE preparation day by day.</p>
+    </div>
+
+    <!-- the rest of the Progress HTML goes here -->
+
+</div>
 
 </body>
 </html>
