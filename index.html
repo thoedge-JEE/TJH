@@ -285,7 +285,165 @@ header {
 
     font-size: 14px;
 }
+/* =========================================================
+   JEE LIVE UPDATES
+   ========================================================= */
 
+.live-updates {
+    max-width: 750px;
+    margin: 28px auto 0;
+
+    display: flex;
+    align-items: stretch;
+
+    background: rgba(8, 10, 20, 0.92);
+
+    border: 1px solid rgba(0, 234, 255, 0.22);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 25px rgba(0, 170, 255, 0.06);
+}
+
+.live-label {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 0 15px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(0, 234, 255, 0.13),
+        rgba(139, 92, 246, 0.13)
+    );
+
+    border-right: 1px solid rgba(255,255,255,0.08);
+
+    color: var(--cyan);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+.live-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow: 0 0 10px var(--green);
+
+    animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.45;
+        transform: scale(0.75);
+    }
+
+}
+
+.live-ticker {
+    flex: 1;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.live-track {
+    display: inline-flex;
+
+    align-items: center;
+
+    white-space: nowrap;
+
+    animation: tickerScroll 20s linear infinite;
+}
+
+.live-track:hover {
+    animation-play-state: paused;
+}
+
+.live-item {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-right: 70px;
+
+    color: #d8d8e5;
+
+    font-size: 12px;
+}
+
+.live-item::before {
+    content: "•";
+
+    color: var(--cyan);
+
+    margin-right: 10px;
+
+    font-size: 15px;
+}
+
+@keyframes tickerScroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .live-updates {
+        margin: 24px 0 0;
+        border-radius: 12px;
+    }
+
+    .live-label {
+        padding: 0 10px;
+        font-size: 8px;
+    }
+
+    .live-item {
+        font-size: 10px;
+        margin-right: 50px;
+    }
+
+}
 /* =========================================================
    SEARCH
    ========================================================= */
@@ -1295,12 +1453,37 @@ footer p {
     </h1>
 
     <p>
-        One place for books, notes, formulas, shortcuts,
-        PYQs, DPPs, modules, mock tests and everything
-        you need for your competitive exams preparation.
-    </p>
+    One place for books, notes, formulas, shortcuts,
+    PYQs, DPPs, modules, mock tests and everything
+    you need for your JEE preparation.
+</p>
 
-    <div class="search-box">
+
+<!-- =======================================================
+     JEE LIVE UPDATES
+     ======================================================= -->
+
+<div class="live-updates">
+
+    <div class="live-label">
+
+        <span class="live-dot"></span>
+
+        JEE UPDATES
+
+    </div>
+
+
+    <div class="live-ticker">
+
+        <div class="live-track" id="liveTrack"></div>
+
+    </div>
+
+</div>
+
+
+<div class="search-box">
 
         <span class="search-icon">
             ⌕
