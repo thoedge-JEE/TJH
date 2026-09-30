@@ -83,6 +83,121 @@ body::before {
     pointer-events: none;
     z-index: -1;
 }
+/* ================================
+THOEDGE WELCOME SCREEN
+================================ */
+
+#welcome-screen {
+position: fixed;
+inset: 0;
+z-index: 99999;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+background:
+    radial-gradient(circle at 20% 30%, rgba(0, 240, 255, 0.12), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.14), transparent 35%),
+    #05070d;
+
+opacity: 1;
+visibility: visible;
+
+transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+
+}
+
+#welcome-screen.hide {
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
+}
+
+.welcome-content {
+width: min(90%, 700px);
+text-align: center;
+}
+
+.welcome-badge {
+display: inline-block;
+
+padding: 8px 16px;
+margin-bottom: 22px;
+
+border: 1px solid rgba(0, 240, 255, 0.35);
+border-radius: 999px;
+
+background: rgba(0, 240, 255, 0.06);
+
+color: #00f0ff;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 2px;
+
+box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+
+}
+
+.welcome-content h1 {
+margin: 0;
+
+font-size: clamp(38px, 7vw, 78px);
+font-weight: 900;
+line-height: 1;
+
+background: linear-gradient(
+    90deg,
+    #ffffff,
+    #00f0ff,
+    #8b5cf6,
+    #ff3cac
+);
+
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+
+letter-spacing: -2px;
+
+}
+
+.welcome-content p {
+margin: 20px auto 0;
+
+color: rgba(255, 255, 255, 0.65);
+
+font-size: clamp(14px, 2vw, 19px);
+line-height: 1.6;
+
+}
+
+.welcome-line {
+width: 90px;
+height: 2px;
+
+margin: 28px auto 18px;
+
+background: linear-gradient(
+    90deg,
+    #00f0ff,
+    #8b5cf6,
+    #ff3cac
+);
+
+box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+
+}
+
+.welcome-loading {
+color: rgba(255, 255, 255, 0.45);
+
+font-size: 12px;
+letter-spacing: 1px;
+
+}
 
 /* =========================================================
    HEADER
@@ -1541,6 +1656,32 @@ footer p {
 </head>
 
 <body>
+
+<div id="thoedge-splash">
+
+    <div class="thoedge-splash-content">
+
+        <div class="thoedge-mark">
+            THOEDGE
+        </div>
+
+        <div class="thoedge-line"></div>
+
+        <h1>
+            Welcome to <span>ThoEdge Creations</span>
+        </h1>
+
+        <p>
+            One brand. Many useful digital hubs.
+        </p>
+
+        <div class="thoedge-loading">
+            <span></span>
+        </div>
+
+    </div>
+
+</div>
 
 <!-- =======================================================
      HEADER
@@ -3425,6 +3566,29 @@ document.addEventListener("click", function (event) {
     box.style.setProperty("--click-color", randomColor);
     box.classList.add("box-selected");
 });
+/* =========================================================
+   THOEDGE WELCOME SCREEN
+   ========================================================= */
+
+window.addEventListener("load", function () {
+
+    const welcomeScreen = document.getElementById("welcome-screen");
+
+    if (!welcomeScreen) return;
+
+    /* Show welcome screen for a short time */
+    setTimeout(function () {
+
+        welcomeScreen.classList.add("hide");
+
+        /* Remove it completely after the animation */
+        setTimeout(function () {
+            welcomeScreen.remove();
+        }, 900);
+
+    }, 2200);
+
+});
 </script>
 <!-- ================= PROGRESS & ANALYSIS ================= -->
 
@@ -3442,6 +3606,7 @@ document.addEventListener("click", function (event) {
     <!-- the rest of the Progress HTML goes here -->
 
 </div>
+
 
 </body>
 </html>
