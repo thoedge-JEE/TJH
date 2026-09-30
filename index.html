@@ -965,6 +965,31 @@ header {
     box-shadow:
         0 0 20px rgba(0,170,255,0.3);
 }
+/* WHITE BOX BORDERS + RANDOM CLICK COLOR */
+
+.vault-card,
+.subject-card,
+.class-card,
+.chapter,
+.resource-card,
+.jee-card,
+.competitive-card,
+.stat {
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    transition: 0.25s ease;
+}
+
+.box-selected {
+    border-color: var(--click-color) !important;
+
+    box-shadow:
+        0 0 12px var(--click-color),
+        0 0 28px color-mix(
+            in srgb,
+            var(--click-color),
+            transparent 65%
+        );
+}
 
 /* =========================================================
    JEE CARDS
@@ -1493,7 +1518,6 @@ footer p {
 .accent-green {
     --accent: var(--green);
 }
-
 
 
 
@@ -3326,10 +3350,39 @@ function openCompetitiveExam(exam) {
 /* =========================================================
    START
    ========================================================= */
-
 goHome();
-</script>
 
+const clickColors = [
+    "#00f0ff",
+    "#00aaff",
+    "#8b5cf6",
+    "#ff3cac",
+    "#ff9d00",
+    "#00ff9d",
+    "#ff416c"
+];
+
+document.addEventListener("click", function (event) {
+
+    const box = event.target.closest(
+        ".vault-card, .subject-card, .class-card, .chapter, .resource-card, .jee-card, .competitive-card, .stat"
+    );
+
+    if (!box) return;
+
+    const randomColor =
+        clickColors[Math.floor(Math.random() * clickColors.length)];
+
+    box.style.setProperty("--click-color", randomColor);
+
+    box.classList.remove("box-selected");
+
+    void box.offsetWidth;
+
+    box.classList.add("box-selected");
+});
+
+</script>
 <!-- ================= PROGRESS & ANALYSIS ================= -->
 
 <div id="progressPanel" class="progress-panel">
