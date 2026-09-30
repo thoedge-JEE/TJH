@@ -3351,41 +3351,41 @@ function openCompetitiveExam(exam) {
    START
    ========================================================= */
 goHome();
-
 const clickColors = [
-    "#00f0ff", // Cyan
-    "#00aaff", // Sky blue
-    "#0088ff", // Bright blue
-    "#0066ff", // Electric blue
-    "#00ffff", // Aqua
-    "#00ffcc", // Turquoise
-    "#00ff9d", // Neon green
-    "#39ff14", // Neon green
-    "#7cff00", // Lime
-    "#c6ff00", // Yellow-green
-    "#ffff00", // Yellow
-    "#ffd000", // Golden yellow
-    "#ff9d00", // Orange
-    "#ff6b00", // Bright orange
-    "#ff416c", // Red-pink
-    "#ff1744", // Neon red
-    "#ff00aa", // Hot pink
-    "#ff3cac", // Pink
-    "#ff00ff", // Magenta
-    "#d946ef", // Purple-pink
-    "#a855f7", // Violet
-    "#8b5cf6", // Purple
-    "#7c3aed", // Deep purple
-    "#6366f1", // Indigo
-    "#4f46e5", // Blue-violet
-    "#22d3ee", // Cyan-blue
-    "#14b8a6", // Teal
-    "#10b981", // Emerald
-    "#84cc16", // Lime
-    "#f59e0b", // Amber
-    "#f97316", // Orange-red
-    "#ef4444"  // Red
+    "#00f0ff",
+    "#00aaff",
+    "#0088ff",
+    "#0066ff",
+    "#00ffff",
+    "#00ffcc",
+    "#00ff9d",
+    "#39ff14",
+    "#84ff00",
+    "#c6ff00",
+    "#ffff00",
+    "#ffd000",
+    "#ff9d00",
+    "#ff6b00",
+    "#ff4500",
+    "#ff416c",
+    "#ff1744",
+    "#ff00aa",
+    "#ff3cac",
+    "#ff00ff",
+    "#d946ef",
+    "#a855f7",
+    "#8b5cf6",
+    "#7c3aed",
+    "#6366f1",
+    "#4f46e5",
+    "#22d3ee",
+    "#14b8a6",
+    "#10b981",
+    "#f59e0b"
 ];
+
+let usedColors = [];
+let boxColors = new Map();
 
 document.addEventListener("click", function (event) {
 
@@ -3395,18 +3395,37 @@ document.addEventListener("click", function (event) {
 
     if (!box) return;
 
+    // Don't change the color if this box already has one
+    if (boxColors.has(box)) {
+        return;
+    }
+
+    // Get only unused colors
+    let availableColors = clickColors.filter(
+        color => !usedColors.includes(color)
+    );
+
+    // After all 30 colors are used,
+    // start a fresh cycle
+    if (availableColors.length === 0) {
+        usedColors = [];
+        availableColors = [...clickColors];
+    }
+
+    // Pick one unused color randomly
     const randomColor =
-        clickColors[Math.floor(Math.random() * clickColors.length)];
+        availableColors[
+            Math.floor(Math.random() * availableColors.length)
+        ];
 
+    // Save the color
+    usedColors.push(randomColor);
+    boxColors.set(box, randomColor);
+
+    // Apply the color
     box.style.setProperty("--click-color", randomColor);
-
-    box.classList.remove("box-selected");
-
-    void box.offsetWidth;
-
     box.classList.add("box-selected");
 });
-
 </script>
 <!-- ================= PROGRESS & ANALYSIS ================= -->
 
