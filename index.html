@@ -3550,24 +3550,24 @@ document.addEventListener("click", function (event) {
     box.classList.add("box-selected");
 });
 /* =========================================================
-   THOEDGE WELCOME SCREEN
+   THOEDGE WELCOME SCREEN — TAP TO ENTER
    ========================================================= */
 
 window.addEventListener("load", function () {
 
-    const welcomeScreen = document.getElementById("welcome-screen");
+    const welcomeScreen =
+        document.getElementById("welcome-screen");
 
     if (!welcomeScreen) return;
 
-    setTimeout(function () {
+    function enterWebsite() {
 
         welcomeScreen.classList.add("hide");
 
-        setTimeout(function () {
-            welcomeScreen.remove();
-        }, 800);
+    }
 
-    }, 2000);
+    // Tap anywhere on the welcome screen
+    welcomeScreen.addEventListener("click", enterWebsite);
 
 });
 </script>
