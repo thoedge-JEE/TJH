@@ -83,120 +83,117 @@ body::before {
     pointer-events: none;
     z-index: -1;
 }
-/* ================================
-THOEDGE WELCOME SCREEN
-================================ */
+/* =========================================================
+   THOEDGE WELCOME SCREEN
+   ========================================================= */
 
 #welcome-screen {
-position: fixed;
-inset: 0;
-z-index: 99999;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
 
-display: flex;
-align-items: center;
-justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-background:
-    radial-gradient(circle at 20% 30%, rgba(0, 240, 255, 0.12), transparent 35%),
-    radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.14), transparent 35%),
-    #05070d;
+    background:
+        radial-gradient(circle at center,
+            rgba(0,170,255,0.14),
+            transparent 35%),
+        rgba(3,4,10,0.96);
 
-opacity: 1;
-visibility: visible;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
-transition:
-    opacity 0.8s ease,
-    visibility 0.8s ease;
+    opacity: 1;
+    visibility: visible;
 
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
 }
 
 #welcome-screen.hide {
-opacity: 0;
-visibility: hidden;
-pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .welcome-content {
-width: min(90%, 700px);
-text-align: center;
+    text-align: center;
+    animation: welcomeEnter 1s ease forwards;
 }
 
-.welcome-badge {
-display: inline-block;
-
-padding: 8px 16px;
-margin-bottom: 22px;
-
-border: 1px solid rgba(0, 240, 255, 0.35);
-border-radius: 999px;
-
-background: rgba(0, 240, 255, 0.06);
-
-color: #00f0ff;
-font-size: 12px;
-font-weight: 700;
-letter-spacing: 2px;
-
-box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
-
+.welcome-brand {
+    color: #00f0ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 14px;
+    text-shadow: 0 0 20px rgba(0,240,255,0.7);
 }
 
 .welcome-content h1 {
-margin: 0;
+    margin: 0;
+    font-size: clamp(28px, 6vw, 55px);
+    font-weight: 800;
 
-font-size: clamp(38px, 7vw, 78px);
-font-weight: 900;
-line-height: 1;
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #00f0ff,
+        #8b5cf6,
+        #ff3cac
+    );
 
-background: linear-gradient(
-    90deg,
-    #ffffff,
-    #00f0ff,
-    #8b5cf6,
-    #ff3cac
-);
-
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
-
-letter-spacing: -2px;
-
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .welcome-content p {
-margin: 20px auto 0;
-
-color: rgba(255, 255, 255, 0.65);
-
-font-size: clamp(14px, 2vw, 19px);
-line-height: 1.6;
-
+    margin-top: 14px;
+    color: #9292a7;
+    font-size: 14px;
 }
 
 .welcome-line {
-width: 90px;
-height: 2px;
+    width: 0;
+    height: 2px;
+    margin: 24px auto 0;
 
-margin: 28px auto 18px;
+    background: linear-gradient(
+        90deg,
+        #00f0ff,
+        #8b5cf6,
+        #ff3cac
+    );
 
-background: linear-gradient(
-    90deg,
-    #00f0ff,
-    #8b5cf6,
-    #ff3cac
-);
+    box-shadow: 0 0 15px rgba(0,240,255,0.6);
 
-box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
-
+    animation: welcomeLine 1.6s ease forwards;
 }
 
-.welcome-loading {
-color: rgba(255, 255, 255, 0.45);
+@keyframes welcomeEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
 
-font-size: 12px;
-letter-spacing: 1px;
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
+@keyframes welcomeLine {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 180px;
+    }
 }
 
 /* =========================================================
@@ -1654,7 +1651,18 @@ footer p {
 
 </style>
 </head>
+<!-- THOEDGE WELCOME SCREEN -->
+<div id="welcome-screen">
+    <div class="welcome-content">
+        <div class="welcome-brand">THOEDGE</div>
 
+        <h1>Welcome to thoEdge Creations</h1>
+
+        <p>One brand. Many useful digital hubs.</p>
+
+        <div class="welcome-line"></div>
+    </div>
+</div>
 <body>
 
 <div id="thoedge-splash">
@@ -3576,36 +3584,18 @@ window.addEventListener("load", function () {
 
     if (!welcomeScreen) return;
 
-    /* Show welcome screen for a short time */
     setTimeout(function () {
 
         welcomeScreen.classList.add("hide");
 
-        /* Remove it completely after the animation */
         setTimeout(function () {
             welcomeScreen.remove();
-        }, 900);
+        }, 800);
 
-    }, 2200);
+    }, 2000);
 
 });
 </script>
-<!-- ================= PROGRESS & ANALYSIS ================= -->
-
-<div id="progressPanel" class="progress-panel">
-
-    <div class="progress-header">
-        <button onclick="closeProgressAnalysis()" class="back-btn">
-            ← Back
-        </button>
-
-        <h2>📊 Progress & Analysis</h2>
-        <p>Track your JEE preparation day by day.</p>
-    </div>
-
-    <!-- the rest of the Progress HTML goes here -->
-
-</div>
 
 
 </body>
